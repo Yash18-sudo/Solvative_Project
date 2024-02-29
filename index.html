@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="card">
+            <div class="hamburger" onclick="toggleHistory()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="screen">
+                <input type="text" id="display" value="0"
+                    oninput="this.value = this.value.replace(/[^0-9.%*()+\[\]\/\-]|(\.\.*)\./g, '$1');" />
+            </div>
+            <div class="keys">
+                <div class="row1">
+                    <button onclick="display.value='' " class="blgrey">CE</button>
+                    <button onclick="clearLastNumber()" class="blgrey">C</button>
+                    <button onclick="display.value = display.value.toString().slice(0,-1)" class="blgrey"><img
+                            src="./delete-back-2-line.png" alt="BS"></button>
+                    <button onclick="display.value += '/'" class="bblue">/</button>
+                    
+                </div>
+                <div class="row2">
+                    <button onclick="display.value += '7'" class="bdgrey">7</button>
+                    <button onclick="display.value += '8'" class="bdgrey">8</button>
+                    <button onclick="display.value += '9'" class="bdgrey">9</button>
+                    <button onclick="display.value += '*'" class="bblue">*</button>
+                </div>
+                <div class="row3">
+                    <button onclick="display.value += '4'" class="bdgrey">4</button>
+                    <button onclick="display.value += '5'" class="bdgrey">5</button>
+                    <button onclick="display.value += '6'" class="bdgrey">6</button>
+                    <button onclick="display.value += '-'" class="bblue">-</button>
+                    
+                </div>
+                <div class="row4">
+                    <button onclick="display.value += '1'" class="bdgrey">1</button>
+                    <button onclick="display.value += '2'" class="bdgrey">2</button>
+                    <button onclick="display.value += '3'" class="bdgrey">3</button>
+                    <button onclick="display.value += '+'" class="bblue">+</button>
+                </div>
+                <div class="row5">
+                    <button onclick="display.value += '0'" class="bdgrey zero">0</button>
+                    <button onclick="display.value += '.'" class="bdgrey">.</button>
+                    <button class="equal">=</button>
+                </div>
+            </div>
+        </div>
+                <div class="history">
+                    <div>
+                        <h3>History</h3>
+                        <img src="./delete.png" class="delete" alt="Delete" onclick="removeHistory()">
+                    </div>
+                
+                </div>
+    </div>
+
+    <script>
+        var input = document.getElementById("display");
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.querySelector(".equal").click();
+            }
+        });
+
+        var selected = document.getElementById('display');
+        selected.focus();
+        selected.select();
+
+    </script>
+<script src="./script.js"></script>
+</body>
+
+</html>

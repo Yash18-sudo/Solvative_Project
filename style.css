@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+.main {
+  height: 100vh;
+  background: radial-gradient(#1372b7, #3b3a3a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history {
+  display: none;
+}
+
+.history.active {
+  height: 100%;
+  width: 100%;
+  background-color: #17181a;
+  display: block;
+  overflow-y: scroll;
+  color: white;
+}
+
+.history::-webkit-scrollbar {
+  width: 0;
+}
+
+.history > div {
+  display: flex;
+  align-items: center;
+}
+
+.history > div > h3 {
+  font-size: 2.5em;
+  margin: 20px;
+}
+
+.history p {
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+.delete {
+  height: 50px;
+  cursor: pointer;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  background-color: #17181a;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30%;
+}
+
+.hamburger {
+  height: 10%;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+.screen {
+  height: 10%;
+  width: 340px;
+  margin-top: 100px;
+}
+
+input {
+  height: 100%;
+  width: 100%;
+  font-size: 40px;
+  text-align: right;
+  background-color: #17181A;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: #252525;
+}
+
+button {
+  height: 70px;
+  width: 70px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.keys {
+  display: grid;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+
+.bdgrey {
+  background-color: #303136;
+  color: #29a8ff;
+}
+
+.blgrey {
+  background-color: #616161;
+  color: #a5a5a5;
+}
+
+.bblue {
+  background-color: #005db2;
+  color: #339dff;
+}
+
+.equal {
+  width: 155px;
+  background-color: #24a5ff;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 300px) {
+  .main {
+    padding: 10px;
+  }
+
+  .history.active {
+    width: calc(100% - 20px);
+  }
+
+  .history > div > h3,
+  .history p {
+    font-size: 1.5em;
+    margin: 10px;
+  }
+
+  .delete {
+    height: 30px;
+  }
+
+  .hamburger {
+    margin-top: 10px;
+  }
+
+  .bar {
+    width: 15px;
+    height: 2px;
+  }
+
+  .screen {
+    margin-top: 50px;
+  }
+
+  input {
+    font-size: 20px;
+  }
+
+  button {
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+  }
+
+  .keys {
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .bdgrey,
+  .blgrey,
+  .bblue {
+    font-size: 20px;
+  }
+
+  .equal {
+    width: 100px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .history.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1000; 
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger {
+    z-index: 1001; 
+    margin-top: 10px;
+    margin-left:80%;
+  }
+}
